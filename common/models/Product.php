@@ -2,7 +2,6 @@
 
 namespace common\models;
 
-use app\models\Category;
 use Yii;
 
 /**
