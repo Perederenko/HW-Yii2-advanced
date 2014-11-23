@@ -13,6 +13,7 @@ use Yii;
  * @property string $price
  * @property string $image
  * @property integer $category_id
+ * @property integer $tag_id
  *
  * @property Category $category
  */
@@ -35,7 +36,7 @@ class Product extends \yii\db\ActiveRecord
             [['name', 'price', 'category_id'], 'required'],
             [['description'], 'string'],
             [['price'], 'number'],
-            [['category_id'], 'integer'],
+            [['category_id', 'tag_id'], 'integer'],
             [['name', 'image'], 'string', 'max' => 255]
         ];
     }
@@ -52,6 +53,7 @@ class Product extends \yii\db\ActiveRecord
             'price' => 'Price',
             'image' => 'Image',
             'category_id' => 'Category ID',
+            'tag_id' => 'Tag ID',
         ];
     }
 
@@ -61,5 +63,13 @@ class Product extends \yii\db\ActiveRecord
     public function getCategory()
     {
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTagProducts()
+    {
+        return $this->hasMany(TagProduct::className(), ['product_id' => 'id']);
     }
 }
