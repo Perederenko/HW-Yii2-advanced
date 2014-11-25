@@ -16,6 +16,7 @@ use Yii;
  * @property integer $tag_id
  *
  * @property Category $category
+ * @property TagProduct[] $tagProducts
  */
 class Product extends \yii\db\ActiveRecord
 {

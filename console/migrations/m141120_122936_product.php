@@ -20,6 +20,7 @@ class m141120_122936_product extends Migration
             'price' => Schema::TYPE_DECIMAL . '(10, 2) NOT NULL',
             'image' => Schema::TYPE_STRING,
             'category_id' => Schema::TYPE_INTEGER,
+            'tag_id' => Schema::TYPE_INTEGER,
         ], $tableOptions);
     }
 
