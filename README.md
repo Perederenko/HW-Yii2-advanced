@@ -12,3 +12,10 @@ Yii 2 Advanced Application Template
   * Create Models
   * Create all relation ( one to one, one to many, many to many)
   * Create form with ActiveForm
+
+###Homework3
+
+ * Create own module с Контролером CRUD, моделью, Видами, и Виджетом.
+ * Create own logger
+ * Create records in logger at creation of new records through your model
+ * Create own component which will return the text "Hello World!"
