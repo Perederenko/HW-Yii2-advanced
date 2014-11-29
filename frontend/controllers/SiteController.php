@@ -8,6 +8,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\CallbackForm;
+use frontend\components\Hello;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -184,5 +185,10 @@ class SiteController extends Controller
         return $this->render('callback', [
             'model' => $model,
         ]);
+    }
+
+    public function actionHello()
+    {
+        return Yii::$app->hello->show();
     }
 }
