@@ -62,6 +62,8 @@ class ProductController extends Controller
     {
         $model = new Product();
 
+        Yii::info('add_product', 'product');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

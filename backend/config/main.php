@@ -24,6 +24,12 @@ return [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['info'],
+                    'categories' => ['product'],
+                    'logFile' => '@backend/runtime/logs/created_product.log',
+                ],
             ],
         ],
         'errorHandler' => [
