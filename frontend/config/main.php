@@ -28,6 +28,9 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'hello' => [
+            'class' => 'frontend\components\Hello',
+        ],
     ],
     'params' => $params,
 ];
