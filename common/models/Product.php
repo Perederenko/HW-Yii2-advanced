@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "{{%product}}".
@@ -38,7 +39,8 @@ class Product extends \yii\db\ActiveRecord
             [['description'], 'string'],
             [['price'], 'number'],
             [['category_id', 'tag_id'], 'integer'],
-            [['name', 'image'], 'string', 'max' => 255]
+            [['name', 'image'], 'string', 'max' => 255],
+            [['image'], 'file', 'extensions' => 'gif, jpg, png, jpeg',],
         ];
     }
 

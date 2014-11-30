@@ -12,6 +12,4 @@ class Hello extends Component
     {
         return $this->greeting;
     }
-
-
 }
