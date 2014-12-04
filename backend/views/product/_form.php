@@ -19,7 +19,9 @@ use \kartik\file\FileInput;
 
     <?= $form->field($model, 'price')->textInput(['maxlength' => 10]) ?>
 
-    <?php echo $form->field($model, 'image')->widget(FileInput::classname(), [
+    <?= $form->field($model, 'image')->textInput(['maxlength' => 255]) ?>
+
+    <?php echo $form->field($model, 'image_file')->widget(FileInput::classname(), [
         'options' => ['accept' => 'image/*'],
     ]); ?>
 

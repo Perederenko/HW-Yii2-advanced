@@ -3,7 +3,6 @@
 namespace common\models;
 
 use Yii;
-use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "{{%product}}".
@@ -21,6 +20,8 @@ use yii\web\UploadedFile;
  */
 class Product extends \yii\db\ActiveRecord
 {
+    public $image_file;
+
     /**
      * @inheritdoc
      */
@@ -40,7 +41,8 @@ class Product extends \yii\db\ActiveRecord
             [['price'], 'number'],
             [['category_id', 'tag_id'], 'integer'],
             [['name', 'image'], 'string', 'max' => 255],
-            [['image'], 'file', 'extensions' => 'gif, jpg, png, jpeg',],
+            [['image_file'], 'safe'],
+            [['image_file'], 'file', 'extensions' => 'gif, jpg, png, jpeg',],
         ];
     }
 

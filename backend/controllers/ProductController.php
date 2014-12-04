@@ -65,11 +65,14 @@ class ProductController extends Controller
 
         Yii::info('add_product', 'product');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->image = UploadedFile::getInstance($model, 'image');
-            $model->image->saveAs('uploads/'.$model->image);
+        if ($model->load(Yii::$app->request->post())) {
+            $image_file = UploadedFile::getInstance($model, 'image_file');
+            $model->image = $image_file->name;
+            if($model->save()){
+                $image_file->saveAs('uploads/' . $model->image);
 
-            return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,
