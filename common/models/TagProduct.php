@@ -10,7 +10,7 @@ use Yii;
  * @property integer $tag_id
  * @property integer $product_id
  *
- * @property Tags $tag
+ * @property Tags $tags
  * @property Product $product
  */
 class TagProduct extends \yii\db\ActiveRecord

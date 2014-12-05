@@ -4,7 +4,10 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Product;
+use common\models\Category;
+use common\models\Tags;
 use common\models\ProductSearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -74,8 +77,13 @@ class ProductController extends Controller
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
+            $categoryList = ArrayHelper::map(Category::find()->asArray()->all(), 'id', 'title');
+            $tagsList = ArrayHelper::map(Tags::find()->asArray()->all(), 'id', 'title');
+
             return $this->render('create', [
                 'model' => $model,
+                'categoryList' => $categoryList,
+                'tagsList' => $tagsList,
             ]);
         }
     }
@@ -93,8 +101,13 @@ class ProductController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            $categoryList = ArrayHelper::map(Category::find()->asArray()->all(), 'id', 'title');
+            $tagsList = ArrayHelper::map(Tags::find()->asArray()->all(), 'id', 'title');
+
             return $this->render('update', [
                 'model' => $model,
+                'categoryList' => $categoryList,
+                'tagsList' => $tagsList,
             ]);
         }
     }

@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             'price',
             'image',
-            'category_id',
+            'category.title',
             'tag_id',
         ],
     ]) ?>

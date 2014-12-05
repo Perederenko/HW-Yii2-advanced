@@ -6,6 +6,8 @@ use \kartik\file\FileInput;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Product */
+/* @var $categoryList yii\db\ActiveRecord[] */
+/* @var $tagsList yii\db\ActiveRecord[] */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -25,9 +27,10 @@ use \kartik\file\FileInput;
         'options' => ['accept' => 'image/*'],
     ]); ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
+    <?= $form->field($model, 'category_id')->dropDownList($categoryList,
+        ['prompt'=>'Select category']) ?>
 
-    <?= $form->field($model, 'tag_id')->textInput() ?>
+    <?= $form->field($model, 'tag_id')->listBox($tagsList) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
