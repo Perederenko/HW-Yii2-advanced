@@ -13,6 +13,21 @@ return [
     'controllerNamespace' => 'console\controllers',
     'modules' => [
         'gii' => 'yii\gii\Module',
+        'allowedIPs' => ['127.0.0.1'],
+        'generators' => [
+            // generator name
+            'rb-model' => [
+                //generator class
+                'class'     => 'schmunk42\giiant\model\Generator',
+                //setting for out templates
+                'templates' => [
+                    // template name => path to template
+                    'rbModel' =>
+                    '@app/giiTemplates/model/default',
+
+                ]
+            ]
+        ],
     ],
     'components' => [
         'log' => [
