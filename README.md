@@ -15,7 +15,11 @@ Yii 2 Advanced Application Template
 
 ###Homework3
 
- * Create own module с Контролером CRUD, моделью, Видами, и Виджетом.
+ * Create own module with Controller CRUD, Model, Views, and Widgets.
  * Create own logger
  * Create records in logger at creation of new records through your model
  * Create own component which will return the text "Hello World!"
+
+###Homework5
+
+ * Security
