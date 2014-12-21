@@ -28,17 +28,21 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
+                        'actions' => ['signup', 'login'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout' ,'index', 'about'],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['user'],
+                    ],
+                    [
+                        'actions' => ['contact'],
+                        'allow' => true,
+                        'roles' => ['admin'],
                     ],
                 ],
             ],
@@ -69,7 +73,12 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        if(\Yii::$app->user->can('readPost')){
+            return $this->render('index');
+        }else{
+            return $this->render('403');
+        }
+
     }
 
     public function actionLogin()
